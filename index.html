@@ -457,9 +457,12 @@
             <ul>
               <li>
                 <a href="https://github.com/jeyounglim/celloSquare" target="_blank" rel="noopener noreferrer">cello-square(내부관리용)</a>
+                <p style="font-size: 10px;">
+                  * 권한 신청은 퍼블리셔 담당자에게 요청 필요
+                </p>
               </li>
             </ul>
-            <h3>Admin(VDI접속)</h3>
+            <h3>Admin(*VDI접속)</h3>
             <ul>
               <li class="inline">
                 <a href="https://stgadmin.cellosquare.com/" target="_blank" rel="noopener noreferrer">STG</a>
@@ -486,7 +489,7 @@
                 <a href="https://www.cellosquare.cn/" target="_blank" rel="noopener noreferrer">CN(별도 관리)</a>
               </li>
             </ul>
-            <h3>Site (STG)</h3>
+            <h3>Site (STG) </h3>
             <ul>
               <li class="inline">
                 <a href="https://stg.cello-square.com/kr/index.do" target="_blank" rel="noopener noreferrer">KR </a>
@@ -535,7 +538,7 @@
       $(function () {
         // 로그인 체크 함수
         function checkLogin() {
-          const loginInfo = prompt('아이디/비밀번호를 입력하세요 ', '');
+          const loginInfo = prompt('아이디를 입력하세요 ', '');
           if (loginInfo === null) {
             document.body.innerHTML = '<h1 style="text-align: center; margin-top: 50px;">접근이 취소되었습니다.</h1>';
             return false;
@@ -543,15 +546,15 @@
 
           const [userId, userPw] = loginInfo.split('/');
           const validId = 'admin';
-          const validPw = '1234';
+          // const validPw = '1234';
           
-          if(userId === validId && userPw === validPw) {
+          if(userId === validId ) {
             // localStorage 대신 sessionStorage 사용
             sessionStorage.setItem('isLoggedIn', 'true');
             $('.wrapper').show();
             return true;
           } else {
-            alert('아이디 또는 비밀번호가 올바르지 않습니다.');
+            alert('아이디 가 올바르지 않습니다.');
             return checkLogin();
           }
         }
