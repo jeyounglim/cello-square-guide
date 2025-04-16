@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=960" />
+    <title>HTML Generator for Article - celloSquare</title>
+    <link rel="shortcut icon" href="./cellosquer/css/favicon.ico" />
+    <!-- // common CSS -->
+    <style>
+      .detail-box .source-area {
+        margin-bottom: 20px;
+        padding: 0 20px;
+        height: 60px;
+        background: #f4f4f4;
+        text-align: right;
+        line-height: 60px;
+        font-size: 14px;
+      }
+      .detail-box .source-area p > span {
+        padding-left: 33px;
+        position: relative;
+      }
+      .detail-box .source-area p > span::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        width: 1px;
+        height: 12px;
+        background: #424645;
+        margin-top: -5px;
+      }
+    </style>
+    <!-- guide CSS -->
+    <link rel="stylesheet" href="./guide-for-article.css" />
+    <style>
+      textarea:focus-visible {
+        border: 1px solid black !important;
+        outline: none !important;
+      }
+      input#js2input,
+      input#js3input {
+        font-size: 12px;
+      }
+      .grid {
+        padding: 24px;
+        background-color: #fff;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      .flex-list {
+        display: flex;
+        gap: 40px;
+      }
+      input[type="text"] {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 400px;
+      }
+    </style>
+    <style>
+      /* Source Area */
+      .detail-box .source-area {
+        height: auto;
+        padding: 18px 20px 14px;
+        line-height: 1.8;
+      } /* Image Styling */
+      .detail-box .img.img-top {
+        margin-bottom: 60px;
+      }
+      .detail-box img {
+        vertical-align: baseline;
+      } /* Info Box */
+      .text.info {
+        background-color: #f4f4f4;
+        border: solid 1px #ddd;
+        padding: 2.25vw;
+      } /* Links */
+      .detail-box .link {
+        color: #1428a0;
+      } /* 새로 추가된 스타일 */ /* Responsive Adjustments */
+      @media screen and (max-width: 767px) {
+        .detail-box .source-area {
+          padding: 18px 18px 14px;
+          line-height: 22px;
+        }
+        .detail-box .img.img-top {
+          margin-bottom: 40px;
+        }
+        .text.info {
+          padding: 8.25vw;
+        }
+      }
+    </style>
+    <!-- // guide CSS -->
+  </head>
+
+  <body>
+    <div class="grid">
+      <h1>
+        HTML Generator for Article
+        <span style="color: #1428a0; font-size: 12px">사용가능</span>
+      </h1>
+      <div class="p">Article 입력 시 반복되는 코드 작업을 줄여주는 도구입니다.</div>
+      <h2>1. default css</h2>
+      <div class="p">Editer 내에 html 선택 후 최상단 또는 최하단에 style를 포함하여 추가 필요합니다.</div>
+      <div class="p">
+        <textarea name="js1" id="js1" style="width: 100%; max-width: 1000px; padding: 10px; border: 1px solid black !important" cols="30" rows="5" readonly>
+ 
+          <style> /* Source Area */ .detail-box .source-area { height: auto; padding: 18px 20px 14px; line-height: 1.8; } /* Image Styling */ .detail-box .img.img-top { margin-bottom: 60px; } .detail-box img { vertical-align: baseline; } /* Info Box */ .text.info { background-color: #f4f4f4; border: solid 1px #ddd; padding: 2.25vw; } /* Links */ .detail-box .link { color: #1428a0; } /* 새로 추가된 스타일 */ /* Responsive Adjustments */ @media screen and (max-width: 767px) { .detail-box .source-area { padding: 18px 18px 14px; line-height: 22px; } .detail-box .img.img-top { margin-bottom: 40px; } .text.info { padding: 8.25vw; } } 
+          </style>
+            
+        </textarea>
+      </div>
+      <h2>2. 화면 미리보기</h2>
+      <div class="detail-box">
+        <div class="text">
+          <div class="img img-top" style="margin-bottom: 0px">
+            <div class="source-area">
+              <p>
+                source, month.day, year<br />
+                Original Article: <a href="javascript:;" class="link" target="_blank">page link</a><br />
+                Articles Reproduced by Permission of ___
+              </p>
+            </div>
+            <img src="https://dummyimage.com/300x200/000/fff" alt="dummy image" />
+          </div>
+          <div class="text">
+            <strong class="title">title</strong>
+            <p>
+              text
+            </p>
+          </div>
+          <!-- //어드민 등록 영역 끝 -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

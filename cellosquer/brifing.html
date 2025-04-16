@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=960" />
+    <title>HTML Generator for Article - celloSquare</title>
+    <link rel="shortcut icon" href="./cellosquer/css/favicon.ico" />
+    <!-- // common CSS -->
+
+    <!-- guide CSS -->
+    <link rel="stylesheet" href="./guide-for-article.css" />
+    <style>
+      textarea:focus-visible {
+        border: 1px solid black !important;
+        outline: none !important;
+      }
+      input#js2input,
+      input#js3input {
+        font-size: 12px;
+      }
+      .grid {
+        padding: 24px;
+        background-color: #fff;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      .flex-list {
+        display: flex;
+        gap: 40px;
+      }
+      input[type="text"] {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 400px;
+      }
+    </style>
+    <style>
+      /* 기본 스타일 */
+      .detail-box .title{
+        display: block;
+      }
+      .detail-box .img.img-top {
+        margin-bottom: 60px;
+      }
+
+      .text.info {
+        background-color: #f4f4f4;
+        border: solid 1px #ddd;
+        padding: 2.25vw;
+      }
+
+      .detail-box .briefing-box {
+        margin-bottom: 100px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .detail-box .briefing-box .img {
+        margin: 0;
+        width: 270px;
+      }
+
+      .detail-box .briefing-box .text-area {
+        border-top: solid 1px #ddd;
+        width: 600px;
+      }
+
+      .detail-box .briefing-box .text-area .title-bar {
+        padding-top: 28px;
+        font-size: 18px;
+      }
+
+      .detail-box .briefing-box .text-area .title-bar b {
+        color: #35927e;
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+      .detail-box .briefing-box .text-area .title-bar i {
+        font-style: normal;
+      }
+
+      .detail-box .briefing-box .text-area .title-bar .title {
+        padding: 4px 0 0;
+      }
+
+      .detail-box .briefing-box .text-area .text {
+        margin-top: 20px;
+      }
+
+      .detail-box .briefing-box + .im_info {
+        margin-top: -60px;
+        display: block;
+      }
+
+      /* 태블릿 */
+      @media screen and (max-width: 908px) {
+        .detail-con .inner {
+          padding: 0 2vw;
+        }
+
+        .detail-box .briefing-box .img {
+          width: 30%;
+        }
+
+        .detail-box .briefing-box .text-area {
+          width: 70%;
+        }
+      }
+
+      /* 모바일 */
+      @media screen and (max-width: 767px) {
+        .detail-box .img.img-top {
+          margin-bottom: 40px;
+        }
+
+        .text.info {
+          padding: 8.25vw;
+        }
+
+        .detail-box .briefing-box {
+          margin-bottom: 60px;
+          display: block;
+        }
+
+        .detail-box .briefing-box .img {
+          margin: 30px 0 0;
+          width: 100%;
+        }
+
+        .detail-box .briefing-box .text-area {
+          width: 100%;
+        }
+
+        .detail-box .briefing-box .text-area .title-bar {
+          padding-top: 20px;
+          font-size: 16px;
+        }
+
+        .detail-box .briefing-box + .im_info {
+          margin-top: -20px;
+          font-size: 12px;
+        }
+      }
+    </style>
+    <!-- // guide CSS -->
+  </head>
+
+  <body>
+    <div class="grid">
+      <h1>
+        HTML Generator for Article
+        <span style="color: #1428a0; font-size: 12px">사용가능</span>
+      </h1>
+      <div class="p">Article 입력 시 반복되는 코드 작업을 줄여주는 도구입니다.</div>
+      <h2>1. default css</h2>
+      <div class="p">Editer 내에 html 선택 후 최상단 또는 최하단에 style를 포함하여 추가 필요합니다.</div>
+      <div class="p">
+        <textarea name="js1" id="js1" style="width: 100%; max-width: 1000px; padding: 10px; border: 1px solid black !important" cols="30" rows="5" readonly>
+ 
+          <style>
+            /* 기본 스타일 */
+            .detail-box .img.img-top {
+              margin-bottom: 60px;
+            }
+            
+            .text.info {
+              background-color: #f4f4f4;
+              border: solid 1px #ddd;
+              padding: 2.25vw;
+            }
+            
+            .detail-box .briefing-box {
+              margin-bottom: 100px;
+              display: flex;
+              align-items: flex-start;
+              justify-content: space-between;
+              gap: 40px;
+            }
+            
+            .detail-box .briefing-box .img {
+              margin: 0;
+              width: 270px;
+            }
+            
+            .detail-box .briefing-box .text-area {
+              border-top: solid 1px #ddd;
+              width: 600px;
+            }
+            
+            .detail-box .briefing-box .text-area .title-bar {
+              padding-top: 28px;
+              font-size: 18px;
+            }
+            
+            .detail-box .briefing-box .text-area .title-bar b {
+              color: #35927e;
+              display: inline-block;
+              margin-right: 6px;
+            }
+            
+            .detail-box .briefing-box .text-area .title-bar i {
+              font-style: normal;
+            }
+            
+            .detail-box .briefing-box .text-area .title-bar .title {
+              padding: 4px 0 0;
+            }
+            
+            .detail-box .briefing-box .text-area .text {
+              margin-top: 20px;
+            }
+            
+            .detail-box .briefing-box + .im_info {
+              margin-top: -60px;
+              display: block;
+            }
+            
+            /* 태블릿 */
+            @media screen and (max-width: 908px) {
+              .detail-con .inner {
+                padding: 0 2vw;
+              }
+            
+              .detail-box .briefing-box .img {
+                width: 30%;
+              }
+            
+              .detail-box .briefing-box .text-area {
+                width: 70%;
+              }
+            }
+            
+            /* 모바일 */
+            @media screen and (max-width: 767px) {
+              .detail-box .img.img-top {
+                margin-bottom: 40px;
+              }
+            
+              .text.info {
+                padding: 8.25vw;
+              }
+            
+              .detail-box .briefing-box {
+                margin-bottom: 60px;
+                display: block;
+              }
+            
+              .detail-box .briefing-box .img {
+                margin: 30px 0 0;
+                width: 100%;
+              }
+            
+              .detail-box .briefing-box .text-area {
+                width: 100%;
+              }
+            
+              .detail-box .briefing-box .text-area .title-bar {
+                padding-top: 20px;
+                font-size: 16px;
+              }
+            
+              .detail-box .briefing-box + .im_info {
+                margin-top: -20px;
+                font-size: 12px;
+              }
+            }
+            </style>
+            
+        </textarea>
+      </div>
+      <h2>2. 화면 미리보기</h2>
+      <div class="detail-box">
+        <div class="briefing-box">
+          <div class="text-area">
+            <div class="title-bar"><b>[국가]</b><i>month.day</i> 
+            <strong class="title">title </strong></div>
+            <!-- //title-bar -->
+            <div class="text">text</div>
+            <!-- //text -->
+          </div>
+          <!-- //text-area -->
+          <img src="https://dummyimage.com/300x200/000/fff" alt="dummy image" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

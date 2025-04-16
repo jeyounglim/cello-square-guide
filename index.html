@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Coding Convention - cello square</title>
+    <link rel="shortcut icon" href="./cellosquer/css/favicon.ico" />
+    <style>
+      /* font */
+      @font-face {
+        font-family: "Noto_Sans_KR";
+        font-weight: 400;
+        src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap") format("woff2");
+      }
+
+      @font-face {
+        font-family: "Noto_Sans_KR";
+        font-weight: 700;
+        src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap") format("woff2");
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        background: #fff;
+        color: #000;
+        font-family: "Noto_Sans_KR";
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .lnb {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 300px;
+        height: 100vh;
+        padding: 0 20px 0 30px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-right: 5px solid #f0f0f0;
+        background: #fff;
+        color: #000;
+      }
+
+      .lnb .lnb-wrap {
+        width: 250px;
+      }
+
+      .lnb ul,
+      .lnb .list {
+        margin: 0;
+        padding: 20px 0 30px 0;
+      }
+
+      .lnb li {
+        line-height: 120%;
+        padding: 5px 0;
+        list-style: none;
+      }
+
+      .lnb li.inline {
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .lnb li.active a {
+        font-weight: bold;
+        color: #c00f41;
+      }
+
+      .lnb a {
+        text-decoration: underline;
+        color: #000;
+        text-underline-offset: 5px;
+        font-size: 14px;
+        transition: color, 500ms;
+      }
+
+      .lnb a:hover,
+      .lnb a:focus {
+        color: #000;
+      }
+
+      .lnb .main-site a {
+        background: #000;
+        color: #000;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      .lnb .main-site a:focus,
+      .lnb .main-site a:focus-visible {
+        outline-color: #000;
+      }
+
+      .main {
+        float: right;
+        position: relative;
+        width: calc(100% - 300px);
+        height: 100vh;
+        border-left: 5px solid #f0f0f0;
+        /* transition: width 0.1s; */
+      }
+
+      .main iframe {
+        width: 100%;
+        height: 100%;
+        box-sizing: content-box;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      .main .iframe-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        box-sizing: content-box;
+      }
+
+      .main .iframe-title {
+        position: absolute;
+        left: 0;
+        top: -40px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: 32px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 18px;
+        padding: 0;
+      }
+
+      h3 {
+        font-size: 14px;
+        padding: 0;
+      }
+
+      h2 + h3 {
+        padding: 20px 0 0 0;
+      }
+
+      .desc {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 120%;
+        color: #767676;
+        padding: 0;
+      }
+
+      h2 + ul {
+        padding-top: 10px !important;
+      }
+
+      h2 + p {
+        margin: 0;
+        padding: 5px 0;
+      }
+
+      h3 + ul {
+        padding-top: 0 !important;
+      }
+
+      p + ul {
+        padding-top: 0 !important;
+      }
+
+      ul + ul {
+        padding-top: 0 !important;
+      }
+
+      h1 + h2 {
+        padding: 10px 0 !important;
+        font-size: 15px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .handle {
+        position: absolute;
+        left: 300px;
+        top: 0;
+        width: 10px;
+        height: 100%;
+        margin-left: -5px;
+        z-index: 100;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .handle a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        cursor: w-resize;
+        background: #E7F3F1;
+      }
+
+      .handle a:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 4px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: #E7F3F1
+      }
+
+      .handle a:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .handle .left,
+      .handle .right {
+        position: absolute;
+        top: 0;
+        padding: 5px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+
+      .handle .left {
+        right: 10px;
+        background: #E7F3F1;
+      }
+
+      .handle .right {
+        left: 10px;
+        background: #E7F3F1;
+      }
+
+      .overlay_fix {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99;
+        opacity: 0;
+        display: none;
+      }
+
+      .view {
+        padding: 1px 0 !important;
+        font-size: 12px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .view ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .view li {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button[data-type] {
+        background: #fff;
+        padding: 1px 5px;
+        margin: 1px;
+        border: 1px solid #999;
+        color: #333;
+        font-size: 10px;
+        cursor: pointer;
+        border-radius: 100px;
+      }
+
+      body {
+        overflow-y: hidden !important;
+      }
+
+      * {
+        scrollbar-width: 0;
+      }
+
+      *::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        border: 0;
+      }
+
+      section {
+        padding: 30px 0 0 0;
+      }
+
+      .qa-link {
+        font-weight: 500;
+      }
+
+      .qa-link a {
+        position: relative;
+        font-size: 16px;
+      }
+
+      .qa-link:after {
+        content: "";
+        display: inline-block;
+        margin-left: 6px;
+        margin-top: 10px;
+        width: 6px;
+        height: 6px;
+        border-right: 1px solid currentcolor;
+        border-top: 1px solid currentcolor;
+        transform: rotate(45deg);
+      }
+
+      .memo {
+        font-size: 12px;
+        padding: 5px 0 10px 0;
+      }
+
+      .select-wrap {
+        padding: 5px 0 10px;
+      }
+
+      .select-wrap select {
+        width: 100%;
+        max-width: 255px;
+      }
+
+      .select-wrap h3 {
+        padding-bottom: 5px;
+      }
+
+      .select-wrap + h2 {
+        padding-top: 30px;
+      }
+    </style>
+    <style>
+      .lnb.close {
+        left: -100%;
+      }
+
+      .lnb.close + .open-btn + .main {
+        width: 100% !important;
+        border-left: 0;
+      }
+
+      .lnb.close + .open-btn + .main + .handle {
+        display: none !important;
+      }
+
+      .open-btn {
+        position: fixed;
+        top: 50%;
+        left: -40px;
+        margin-top: -40px;
+        width: 80px;
+        height: 80px;
+        z-index: 10000;
+      }
+
+      open-btn button:hover,
+      .open-btn button:focus {
+        opacity: 0.8;
+      }
+
+      .open-btn button:hover {
+        background-position: 30% 50%;
+      }
+
+      .lnb.close + .open-btn button {
+        background-position: 75% 50%;
+        background-color: #E7F3F1;
+        transform: rotateY(0);
+      }
+
+      .lnb.close + .open-btn button:hover {
+        background-position: 85% 50%;
+      }
+      .lnb-wrap h1 img {
+        width: 100%;
+      }
+      /* 추가 */
+    </style>
+  </head>
+
+  <body>
+
+    <div class="wrapper" style="display: none;">
+      <div class="lnb">
+        <div class="lnb-wrap">
+          <h1><img src="./cellosquer/logo.png" alt="Cello Square" /></h1>
+          <h2 style="display: block; max-width: 250px">
+            viewport
+            <button style="float: right" type="button" data-type="reset">Reset</button>
+          </h2>
+          <div class="view" style="width: 100%; max-width: 250px">
+            <ul>
+              <li>
+                <span>Mobile</span>
+                <div class="buttons">
+                  <button type="button" data-type="m1" data-width="360">360</button>
+                  <button type="button" data-type="m2" data-width="767">767</button>
+                </div>
+              </li>
+              <li>
+                <span>Desktop</span>
+                <div class="buttons">
+                  <button type="button" data-type="m5" data-width="1440">1440</button>
+                  <button type="button" data-type="m6" data-width="1920">1920</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="memo">웹 브라우저에서 확인 시, 스크롤바 때문에 실제 디바이스에서 보는 것과 차이가 발생할 수 있습니다.</div>
+
+          <section id="components">
+            <h2>Tools</h2>
+            <ul>
+              <li class="inline">
+                <a href="./cellosquer/design-guide.html" target="page">Design guide</a>
+              </li>
+              <li class="inline">
+                <a href="./cellosquer/article-html-generator.html" target="page">for Article</a>
+              </li>
+            </ul>
+
+            <h2>HTML List(template page)</h2>
+            <ul>
+              <li><a href="./cellosquer/brifing.html" target="page">주간 물류 브리핑</a></li>
+              <li><a href="./cellosquer/global-news.html" target="page">글로벌 뉴스</a></li>
+            </ul>
+            <h3>Gitlab</h3>
+            <ul>
+              <li>
+                <a href="https://github.com/jeyounglim/celloSquare" target="_blank" rel="noopener noreferrer">cello-square(내부관리용)</a>
+              </li>
+            </ul>
+            <h3>Admin(VDI접속)</h3>
+            <ul>
+              <li class="inline">
+                <a href="https://stgadmin.cellosquare.com/" target="_blank" rel="noopener noreferrer">STG</a>
+              </li>
+              <li class="inline">
+                <a href="https://admin.cellosquare.com/" target="_blank" rel="noopener noreferrer">Prod</a>
+              </li>
+            </ul>
+            <h3>Site (Live)</h3>
+            <ul>
+              <li class="inline">
+                <a href="https://www.cello-square.com/kr/index.do" target="_blank" rel="noopener noreferrer">KR </a>
+              </li>
+              <li class="inline">
+                <a href="https://www.cello-square.com/en/index.do" target="_blank" rel="noopener noreferrer">EN</a>
+              </li>
+              <li class="inline">
+                <a href="https://www.cello-square.com/es/index.do" target="_blank" rel="noopener noreferrer">ES</a>
+              </li>
+              <li class="inline">
+                <a href="https://www.cello-square.com/vn/index.do" target="_blank" rel="noopener noreferrer">VN</a>
+              </li>
+              <li class="inline">
+                <a href="https://www.cellosquare.cn/" target="_blank" rel="noopener noreferrer">CN(SDSC관리)</a>
+              </li>
+            </ul>
+            <h3>Site (STG)</h3>
+            <ul>
+              <li class="inline">
+                <a href="https://stg.cello-square.com/kr/index.do" target="_blank" rel="noopener noreferrer">KR </a>
+              </li>
+              <li class="inline">
+                <a href="https://stg.cello-square.com/en/index.do" target="_blank" rel="noopener noreferrer">EN</a>
+              </li>
+              <li class="inline">
+                <a href="https://stg.cello-square.com/es/index.do" target="_blank" rel="noopener noreferrer">ES</a>
+              </li>
+              <li class="inline">
+                <a href="https://stg.cello-square.com/vn/index.do" target="_blank" rel="noopener noreferrer">VN</a>
+              </li>
+              <!-- <li class="inline">
+                <a
+                  href="https://cellosquare.cn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >CN(SDSC관리)</a
+                >
+              </li> -->
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div class="open-btn">
+        <button><span class="sr-only">Open</span></button>
+      </div>
+      <div class="main">
+        <div class="iframe-wrap">
+          <div class="iframe-title"></div>
+          <iframe src="./cellosquer/design-guide.html" frameborder="0" name="page"></iframe>
+        </div>
+      </div>
+      <div class="handle ui-widget-content" id="handleSize">
+        <a type="button"><span style="display: block; width: 0; height: 0; overflow: hidden">Drag</span></a>
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <div class="overlay_fix"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      $(function () {
+        // 로그인 체크 함수
+        function checkLogin() {
+          const loginInfo = prompt('아이디/비밀번호를 입력하세요 ', '');
+          if (loginInfo === null) {
+            document.body.innerHTML = '<h1 style="text-align: center; margin-top: 50px;">접근이 취소되었습니다.</h1>';
+            return false;
+          }
+
+          const [userId, userPw] = loginInfo.split('/');
+          const validId = 'admin';
+          const validPw = '1234';
+          
+          if(userId === validId && userPw === validPw) {
+            // localStorage 대신 sessionStorage 사용
+            sessionStorage.setItem('isLoggedIn', 'true');
+            $('.wrapper').show();
+            return true;
+          } else {
+            alert('아이디 또는 비밀번호가 올바르지 않습니다.');
+            return checkLogin();
+          }
+        }
+
+        // 페이지 로드 시 로그인 상태 체크
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        if(!isLoggedIn) {
+          if(!checkLogin()) {
+            return;
+          }
+        } else {
+          $('.wrapper').show();
+        }
+
+        const $iframe = $(".main .iframe-wrap");
+        const $title = $(".main .iframe-title");
+        const fixSize = function () {
+          setTimeout(function () {
+            const handleLeft = parseFloat($("#handleSize").css("left"));
+            const mainWidth = $(window).width() - handleLeft;
+            $(".lnb").css("width", handleLeft);
+            $(".main").css("width", "calc(100% - " + handleLeft + "px)");
+            $("#handleSize .left").html(handleLeft);
+            const iframeWidth = $iframe.find("iframe").width();
+            $("#handleSize .right").html(iframeWidth);
+          }, 10);
+        };
+        fixSize();
+        $("#handleSize").draggable({
+          axis: "x",
+          containment: ".wrapper",
+          start: function () {
+            $(".overlay_fix").show();
+          },
+          drag: function () {
+            fixSize();
+          },
+          stop: function () {
+            $(".overlay_fix").hide();
+            fixSize();
+          },
+        });
+        $(window).resize(function () {
+          fixSize();
+        });
+        const changeView = function (btype) {
+          if (btype !== "reset") {
+            // border-radius: 15px; border: 10px solid #333;
+            let w = parseInt($("button[data-type=" + btype + "]").attr("data-width"));
+            if (!!event) {
+              w = parseInt($(event.target).attr("data-width"));
+            }
+            $iframe.css({
+              width: w,
+              height: "calc(100% - 16px)",
+              position: "absolute",
+              left: "50%",
+              top: "0",
+              transform: "translate(" + (-1 * w) / 2 + "px,0)",
+              "border-radius": "15px",
+              border: "10px solid #222",
+              background: "#fff",
+              overflow: "hidden",
+            });
+            // $iframe.find('iframe').css({ 'border-radius': '8px', overflow: 'hidden' });
+          } else {
+            $iframe.removeAttr("style");
+          }
+          fixSize();
+        };
+        $("button[data-type]").on("click", function () {
+          const btype = $(this).data("type");
+          $.cookie("LIST_TYPE", btype, { path: "/" });
+          changeView(btype);
+        });
+        $("section a").on("click", function () {
+          if (!$(this).attr("target") || $(this).attr("target") != "_blank") {
+            const url = $(this).attr("href");
+            const tit = $(this).html();
+            $.cookie("LIST_URL", url, { path: "/" });
+            $.cookie("LIST_TITLE", tit, { path: "/" });
+            // $title.html(tit);
+          }
+          return true;
+        });
+        const currentURL = $.cookie("LIST_URL");
+        const currentType = $.cookie("LIST_TYPE");
+        const currentPage = $.cookie("LIST_TITLE");
+        if (currentURL || currentType || currentPage) {
+          $iframe.find("iframe").attr("src", currentURL);
+          // $title.html(currentPage);
+        }
+        if (currentType) {
+          changeView(currentType);
+        }
+        const lnb = document.querySelector(".lnb");
+        const handle = document.querySelector(".handle");
+        const toggleBtn = document.querySelector(".open-btn button");
+        toggleBtn.addEventListener("click", () => {
+          if (lnb.classList.contains("close")) {
+            lnb.classList.remove("close");
+            $.cookie("LNB_OPEN", "Y", { path: "/" });
+          } else {
+            lnb.classList.add("close");
+            $.cookie("LNB_OPEN", "N", { path: "/" });
+          }
+        });
+        const isOpen = $.cookie("LNB_OPEN");
+        setTimeout(function () {
+          if (isOpen == "N") {
+            lnb.classList.add("close");
+          } else {
+            lnb.classList.remove("close");
+          }
+        }, 200);
+        setTimeout(function () {
+          handle.style.opacity = 1;
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
