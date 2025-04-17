@@ -702,37 +702,6 @@
           });
         })();
         (function () {
-          const textArea = document.getElementById("js5");
-          const inputBox = document.getElementById("js5input");
-          const previewArea = document.querySelector("div.design-tit-type01.en-txt span");
-          let listHTML = "";
-          // 엔터 키 입력 감지
-          inputBox.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-              // 입력 값 가져오기
-              const text = inputBox.value.trim();
-
-              // 빈 값 체크
-              if (!text) return;
-
-              // 새로운 목록 항목 만들기
-              const listItem = `${text}`;
-              listHTML = listHTML + listItem;
-
-              // 목록에 항목 추가
-              previewArea.insertAdjacentHTML("beforeend", listItem);
-
-              // 코드 생성
-              textArea.value = `<div class="design-tit-type01 en-txt">
-                <span>${listHTML}</span>
-              </div>`;
-
-              // 입력 값 초기화
-              inputBox.value = "";
-            }
-          });
-        })();
-        (function () {
           const textArea = document.getElementById("js4");
           const inputBox = document.getElementById("js4input");
           const previewArea = document.querySelector("div.design-tit-type02 .round-tit");
