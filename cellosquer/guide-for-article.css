@@ -167,6 +167,9 @@
   border: none;
   padding: 0;
 }
+.grid .flex-list > div {
+  flex: 1;
+}
 .grid .flex-list .box {
   position: relative;
   padding: 0 36px 0 0;
@@ -265,22 +268,25 @@
   padding: 6px;
   display: inline-flex;
   align-items: center;
-  border-radius: 999px;
+  border-radius: 37px;
   border: 2px solid #000;
   background: #00957c;
   margin-bottom: 0;
 }
 .design-tit-type01 span {
   display: flex;
-  padding: 6px 16px 8px;
+  padding: 8px 16px 8px;
   justify-content: center;
   align-items: center;
   font-size: 28px;
   font-weight: 700;
   background-color: #fff;
-  border-radius: 999px;
+  border-radius: 31px;
   border: 2px solid #000;
   line-height: 1.4;
+}
+.design-tit-type01.en-txt span {
+  padding: 0px 16px 6px;
 }
 .detail-new-img-box + .design-tit-type01,
 .detail-new-img-box + .design-tit-type02 {
@@ -424,10 +430,17 @@
 @media screen and (max-width: 767px) {
   .design-tit-type01 {
     padding: 4px;
+    border-radius: 27px;
+    border: 1px solid #000;
   }
   .design-tit-type01 span {
-    padding: 8px 12px;
+    padding: 6px 12px 6px;
     font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 23px;
+  }
+  .design-tit-type01.en-txt span {
+    padding: 4px 12px 6px;
   }
   .design-tit-type02 {
     margin-top: 40px;

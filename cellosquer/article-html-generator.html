@@ -54,7 +54,7 @@
       input[type="text"] {
         padding: 10px 20px;
         font-size: 14px;
-        min-width: 400px;
+        width: calc(50% - 10px);
       }
       ul {
         padding-left: 0;
@@ -81,320 +81,331 @@
       <div class="p">
         <textarea name="js1" id="js1" style="width: 100%; max-width: 1000px; padding: 10px; border: 1px solid black !important" cols="30" rows="5" readonly>
           <style>
-            /* ----------------------------- 공통 타이틀 스타일 ----------------------------- */
-            .design-tit-type01 {
-              padding: 6px;
-              display: inline-flex;
-              align-items: center;
-              border-radius: 999px;
-              border: 2px solid #000;
-              background: #00957c;
-              margin-bottom: 0;
-            }
-            .design-tit-type01 span {
-              display: flex;
-              padding: 6px 16px 8px;
-              justify-content: center;
-              align-items: center;
-              font-size: 28px;
-              font-weight: 700;
-              background-color: #fff;
-              border-radius: 999px;
-              border: 2px solid #000;
-              line-height: 1.4;
-            }
-            .detail-new-img-box + .design-tit-type01,
-            .detail-new-img-box + .design-tit-type02 {
-              margin-top: 80px;
-            }
-            .design-tit-type01 + .detail-large-tit,
-            .design-tit-type02 + .detail-large-tit,
-            .design-tit-type01 + .detail-medium-tit,
-            .design-tit-type02 + .detail-medium-tit {
-              margin-top: 40px;
-            }
-            .design-tit-type01 + .detail-body-txt,
-            .design-tit-type02 + .detail-body-txt {
-              margin-top: 20px;
-            }
-            /* ----------------------------- 둥근 타이틀 박스 ----------------------------- */
-            .design-tit-type02 {
-              display: flex;
-              border-radius: 30px;
-              overflow: hidden;
-            }
-            .design-tit-type02 .round-tit {
-              padding: 16px 24px 16px 40px;
-              background-color: #00d2b4;
-              font-size: 28px;
-              font-weight: bold;
-              line-height: 1.4;
-              color: #fff;
-              display: flex;
-              align-items: center;
-            }
-            .design-tit-type02 .round-txt {
-              padding: 16px 40px 16px 24px;
-              background-color: #e7f3f1;
-              font-size: 28px;
-              font-weight: bold;
-              line-height: 1.4;
-              color: #000;
-              display: flex;
-              align-items: center;
-              flex: 1;
-            }
+/* ----------------------------- 공통 타이틀 스타일 ----------------------------- */
+.design-tit-type01 {
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 37px;
+  border: 2px solid #000;
+  background: #00957c;
+  margin-bottom: 0;
+}
+.design-tit-type01 span {
+  display: flex;
+  padding: 6px 16px 8px;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  background-color: #fff;
+  border-radius: 31px;
+  border: 2px solid #000;
+  line-height: 1.4;
+}
+.design-tit-type01.en-txt span {
+  padding: 0px 16px 6px;
+}
+.detail-new-img-box + .design-tit-type01,
+.detail-new-img-box + .design-tit-type02 {
+  margin-top: 80px;
+}
+.design-tit-type01 + .detail-large-tit,
+.design-tit-type02 + .detail-large-tit,
+.design-tit-type01 + .detail-medium-tit,
+.design-tit-type02 + .detail-medium-tit {
+  margin-top: 40px;
+}
+.design-tit-type01 + .detail-body-txt,
+.design-tit-type02 + .detail-body-txt {
+  margin-top: 20px;
+}
+/* ----------------------------- 둥근 타이틀 박스 ----------------------------- */
+.design-tit-type02 {
+  display: flex;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.design-tit-type02 .round-tit {
+  padding: 16px 24px 16px 40px;
+  background-color: #00d2b4;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.4;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.design-tit-type02 .round-txt {
+  padding: 16px 40px 16px 24px;
+  background-color: #e7f3f1;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.4;
+  color: #000;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
 
-            /* ----------------------------- 텍스트 스타일 ----------------------------- */
-            .detail-large-tit {
-              font-size: 24px;
-              font-weight: 700;
-              line-height: 1.4;
-            }
-            .detail-medium-tit {
-              font-size: 18px;
-              font-weight: 700;
-              line-height: 1.4;
-              margin-top: 20px;
-            }
-            .detail-body-txt {
-              font-size: 18px;
-              font-weight: 400;
-            }
-            .detail-body-caption {
-              font-size: 14px;
-              font-weight: 400;
-              line-height: 1.5;
-              text-align: right;
-            }
+/* ----------------------------- 텍스트 스타일 ----------------------------- */
+.detail-large-tit {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.detail-medium-tit {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 20px;
+}
+.detail-body-txt {
+  font-size: 18px;
+  font-weight: 400;
+}
+.detail-body-caption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+}
 
-            /* ----------------------------- 마진 가이드 ----------------------------- */
-            .detail-body-caption + .detail-large-tit,
-            .detail-body-txt + .detail-large-tit,
-            .detail-body-txt + .design-tit-type01 {
-              margin-top: 80px;
-            }
-            .detail-body-caption + .detail-body-txt {
-              margin-top: 60px;
-            }
-            .detail-large-tit + .detail-large-tit,
-            .detail-body-txt + .detail-medium-tit {
-              margin-top: 40px;
-            }
-            .detail-large-tit + .detail-body-txt,
-            .detail-large-tit + .detail-medium-tit,
-            .detail-medium-tit + .detail-body-txt,
-            .detail-body-txt + .detail-tbl-box {
-              margin-top: 20px;
-            }
+/* ----------------------------- 마진 가이드 ----------------------------- */
+.detail-body-caption + .detail-large-tit,
+.detail-body-txt + .detail-large-tit,
+.detail-body-txt + .design-tit-type01 {
+  margin-top: 80px;
+}
+.detail-body-caption + .detail-body-txt {
+  margin-top: 60px;
+}
+.detail-large-tit + .detail-large-tit,
+.detail-body-txt + .detail-medium-tit {
+  margin-top: 40px;
+}
+.detail-large-tit + .detail-body-txt,
+.detail-large-tit + .detail-medium-tit,
+.detail-medium-tit + .detail-body-txt,
+.detail-body-txt + .detail-tbl-box {
+  margin-top: 20px;
+}
 
-            /* ----------------------------- 리스트 ----------------------------- */
-            .body-list-type {
-              margin-top: 20px;
-            }
-            .body-list-type > li {
-              padding-left: 16px;
-              position: relative;
-            }
-            .body-list-type > li + li {
-              margin-top: 16px;
-            }
-            .body-list-type.bullet-type > li:before {
-              content: "";
-              position: absolute;
-              top: 14px;
-              left: 0;
-              width: 6px;
-              height: 6px;
-              background-color: #000;
-              border-radius: 50%;
-            }
+/* ----------------------------- 리스트 ----------------------------- */
+.body-list-type {
+  margin-top: 20px;
+}
+.body-list-type > li {
+  padding-left: 16px;
+  position: relative;
+}
+.body-list-type > li + li {
+  margin-top: 16px;
+}
+.body-list-type.bullet-type > li:before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 50%;
+}
 
-            .body-list-type + .detail-medium-tit,
-            .body-list-type + .detail-large-tit {
-              margin-top: 40px;
-            }
-            .body-list-type + .detail-body-txt {
-              margin-top: 20px;
-            }
-            /* ----------------------------- 이미지 박스 ----------------------------- */
-            .detail-new-img-box img {
-              width: 100%;
-            }
-            .detail-new-img-box .detail-body-caption {
-              margin-top: 20px;
-            }
-            .detail-new-img-box .detail-medium-tit {
-              margin-bottom: 24px;
-              margin-top: 0;
-            }
-            .detail-new-img-box + .detail-large-tit,
-            .detail-new-img-box + .detail-body-txt,
-            .detail-new-img-box + .detail-new-img-box {
-              margin-top: 60px;
-            }
-            .detail-large-tit + .detail-new-img-box,
-            .detail-medium-tit + .detail-new-img-box,
-            .detail-body-txt + .detail-medium-tit {
-              margin-top: 40px;
-            }
-            .detail-body-txt + .detail-new-img-box {
-              margin-top: 20px;
-            }
-            /* ----------------------------- 반응형 ----------------------------- */
-            @media screen and (max-width: 767px) {
-              .design-tit-type01 {
-                padding: 4px;
-              }
-              .design-tit-type01 span {
-                padding: 8px 12px;
-                font-size: 20px;
-              }
-              .design-tit-type02 {
-                margin-top: 40px;
-                border-radius: 22px;
-              }
-              .design-tit-type02 .round-tit,
-              .design-tit-type02 .round-txt {
-                font-size: 20px;
-                padding: 8px 16px;
-              }
-              .detail-new-img-box + .design-tit-type01,
-              .detail-new-img-box + .design-tit-type02,
-              .detail-body-txt + .design-tit-type01 {
-                margin-top: 40px;
-              }
-              .design-tit-type01 + .detail-large-tit,
-              .design-tit-type02 + .detail-large-tit,
-              .design-tit-type01 + .detail-medium-tit,
-              .design-tit-type02 + .detail-medium-tit {
-                margin-top: 20px;
-              }
-              .design-tit-type01 + .detail-body-txt,
-              .design-tit-type02 + .detail-body-txt {
-                margin-top: 16px;
-              }
+.body-list-type + .detail-medium-tit,
+.body-list-type + .detail-large-tit {
+  margin-top: 40px;
+}
+.body-list-type + .detail-body-txt {
+  margin-top: 20px;
+}
+/* ----------------------------- 이미지 박스 ----------------------------- */
+.detail-new-img-box img {
+  width: 100%;
+}
+.detail-new-img-box .detail-body-caption {
+  margin-top: 20px;
+}
+.detail-new-img-box .detail-medium-tit {
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+.detail-new-img-box + .detail-large-tit,
+.detail-new-img-box + .detail-body-txt,
+.detail-new-img-box + .detail-new-img-box {
+  margin-top: 60px;
+}
+.detail-large-tit + .detail-new-img-box,
+.detail-medium-tit + .detail-new-img-box,
+.detail-body-txt + .detail-medium-tit {
+  margin-top: 40px;
+}
+.detail-body-txt + .detail-new-img-box {
+  margin-top: 20px;
+}
+/* ----------------------------- 반응형 ----------------------------- */
+@media screen and (max-width: 767px) {
+  .design-tit-type01 {
+    padding: 4px;
+    border-radius: 27px;
+    border: 1px solid #000;
+  }
+  .design-tit-type01 span {
+    padding: 4px 12px 6px;
+    font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 23px;
+  }
+  .design-tit-type01.en-txt span {
+    padding: 4px 12px 6px;
+  }
+  .design-tit-type02 {
+    margin-top: 40px;
+    border-radius: 22px;
+  }
+  .design-tit-type02 .round-tit,
+  .design-tit-type02 .round-txt {
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+  .detail-new-img-box + .design-tit-type01,
+  .detail-new-img-box + .design-tit-type02,
+  .detail-body-txt + .design-tit-type01 {
+    margin-top: 40px;
+  }
+  .design-tit-type01 + .detail-large-tit,
+  .design-tit-type02 + .detail-large-tit,
+  .design-tit-type01 + .detail-medium-tit,
+  .design-tit-type02 + .detail-medium-tit {
+    margin-top: 20px;
+  }
+  .design-tit-type01 + .detail-body-txt,
+  .design-tit-type02 + .detail-body-txt {
+    margin-top: 16px;
+  }
 
-              .detail-large-tit {
-                font-size: 20px;
-              }
-              .detail-medium-tit {
-                font-size: 16px;
-                margin-top: 10px;
-              }
-              .detail-body-txt {
-                font-size: 16px;
-              }
-              .detail-body-caption {
-                font-size: 12px;
-              }
-              .detail-body-caption + .detail-large-tit,
-              .detail-body-txt + .detail-large-tit {
-                margin-top: 60px;
-              }
-              .detail-body-caption + .detail-body-txt {
-                margin-top: 40px;
-              }
-              .detail-large-tit + .detail-large-tit,
-              .detail-body-txt + .detail-medium-tit {
-                margin-top: 24px;
-              }
-              .detail-large-tit + .detail-body-txt,
-              .detail-large-tit + .detail-medium-tit,
-              .detail-body-txt + .detail-tbl-box {
-                margin-top: 10px;
-              }
-              .body-list-type {
-                margin-top: 10px;
-              }
-              .body-list-type > li + li {
-                margin-top: 10px;
-              }
-              .body-list-type.bullet-type > li:before {
-                top: 12px;
-              }
-              .body-list-type + .detail-medium-tit,
-              .body-list-type + .detail-large-tit {
-                margin-top: 24px;
-              }
-              .body-list-type + .detail-body-txt {
-                margin-top: 10px;
-              }
-              .detail-new-img-box .detail-body-caption {
-                margin-top: 10px;
-              }
-              .detail-new-img-box .detail-medium-tit {
-                margin-bottom: 16px;
-              }
-              .detail-new-img-box + .detail-large-tit,
-              .detail-new-img-box + .detail-body-tsxt,
-              .detail-new-img-box + .detail-new-img-box {
-                margin-top: 40px;
-              }
-              .detail-large-tit + .detail-new-img-box,
-              .detail-body-txt + .detail-medium-tit,
-              .detail-medium-tit + .detail-new-img-box {
-                margin-top: 24px;
-              }
-              .detail-body-txt + .detail-new-img-box {
-                margin-top: 10px;
-              }
-            }
+  .detail-large-tit {
+    font-size: 20px;
+  }
+  .detail-medium-tit {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .detail-body-txt {
+    font-size: 16px;
+  }
+  .detail-body-caption {
+    font-size: 12px;
+  }
+  .detail-body-caption + .detail-large-tit,
+  .detail-body-txt + .detail-large-tit {
+    margin-top: 60px;
+  }
+  .detail-body-caption + .detail-body-txt {
+    margin-top: 40px;
+  }
+  .detail-large-tit + .detail-large-tit,
+  .detail-body-txt + .detail-medium-tit {
+    margin-top: 24px;
+  }
+  .detail-large-tit + .detail-body-txt,
+  .detail-large-tit + .detail-medium-tit,
+  .detail-body-txt + .detail-tbl-box {
+    margin-top: 10px;
+  }
+  .body-list-type {
+    margin-top: 10px;
+  }
+  .body-list-type > li + li {
+    margin-top: 10px;
+  }
+  .body-list-type.bullet-type > li:before {
+    top: 12px;
+  }
+  .body-list-type + .detail-medium-tit,
+  .body-list-type + .detail-large-tit {
+    margin-top: 24px;
+  }
+  .body-list-type + .detail-body-txt {
+    margin-top: 10px;
+  }
+  .detail-new-img-box .detail-body-caption {
+    margin-top: 10px;
+  }
+  .detail-new-img-box .detail-medium-tit {
+    margin-bottom: 16px;
+  }
+  .detail-new-img-box + .detail-large-tit,
+  .detail-new-img-box + .detail-body-tsxt,
+  .detail-new-img-box + .detail-new-img-box {
+    margin-top: 40px;
+  }
+  .detail-large-tit + .detail-new-img-box,
+  .detail-body-txt + .detail-medium-tit,
+  .detail-medium-tit + .detail-new-img-box {
+    margin-top: 24px;
+  }
+  .detail-body-txt + .detail-new-img-box {
+    margin-top: 10px;
+  }
+}
 
-            /* table */
-            .detail-tbl-box table {
-              width: 100%;
-              border-top: 1px solid #000;
-            }
-            .detail-tbl-box .tbl-multi th,
-            .detail-tbl-box .tbl-multi td {
-              padding: 13px 12px;
-              word-break: break-all;
-            }
-            .detail-tbl-box .tbl-multi td,
-            .detail-tbl-box .tbl-multi th {
-              border-bottom: 1px solid #ddd;
-            }
-            .detail-tbl-box .tbl-multi th {
-              font-size: 14px;
-              color: #121212;
-              text-align: left;
-            }
-            .detail-tbl-box .tbl-multi thead th {
-              background-color: #f4f4f4;
-              font-weight: 700;
-            }
-            .detail-tbl-box .tbl-multi tbody th {
-              background-color: #fafafa;
-              font-weight: 600;
-            }
-            .detail-tbl-box .tbl-multi td {
-              font-size: 14px;
-              color: #121212;
-            }
+/* table */
+.detail-tbl-box table {
+  width: 100%;
+  border-top: 1px solid #000;
+}
+.detail-tbl-box .tbl-multi th,
+.detail-tbl-box .tbl-multi td {
+  padding: 13px 12px;
+  word-break: break-all;
+}
+.detail-tbl-box .tbl-multi td,
+.detail-tbl-box .tbl-multi th {
+  border-bottom: 1px solid #ddd;
+}
+.detail-tbl-box .tbl-multi th {
+  font-size: 14px;
+  color: #121212;
+  text-align: left;
+}
+.detail-tbl-box .tbl-multi thead th {
+  background-color: #f4f4f4;
+  font-weight: 700;
+}
+.detail-tbl-box .tbl-multi tbody th {
+  background-color: #fafafa;
+  font-weight: 600;
+}
+.detail-tbl-box .tbl-multi td {
+  font-size: 14px;
+  color: #121212;
+}
 
-            .detail-tbl-box .tbl-normal td,
-            .detail-tbl-box .tbl-normal th {
-              padding: 13px 12px;
-              font-size: 16px;
-            }
-            .detail-tbl-box .tbl-normal th {
-              font-family: 500;
-              background-color: #fafafa;
-              color: #121212;
-              text-align: left;
-            }
-            .detail-tbl-box .tbl-normal td,
-            .detail-tbl-box .tbl-normal th {
-              border-bottom: 1px solid #e5e5e5;
-              color: #121212;
-            }
-            @media screen and (max-width: 767px) {
-              .detail-tbl-box .tbl-normal td,
-              .detail-tbl-box .tbl-normal th {
-                font-size: 14px;
-              }
-            }
+.detail-tbl-box .tbl-normal td,
+.detail-tbl-box .tbl-normal th {
+  padding: 13px 12px;
+  font-size: 16px;
+}
+.detail-tbl-box .tbl-normal th {
+  font-weight: 600;
+  background-color: #f4f4f4;
+  color: #121212;
+  text-align: left;
+}
+.detail-tbl-box .tbl-normal td,
+.detail-tbl-box .tbl-normal th {
+  border-bottom: 1px solid #e5e5e5;
+  color: #121212;
+}
+@media screen and (max-width: 767px) {
+  .detail-tbl-box .tbl-normal td,
+  .detail-tbl-box .tbl-normal th {
+    font-size: 14px;
+  }
+}
+
           </style></textarea
         >
       </div>
@@ -573,7 +584,7 @@
       </style>
       <h2>2. Title</h2>
       <div class="flex-list" style="padding: 0; border: 0; align-items: flex-start; white-space: wrap">
-        <div style="width: 50%">
+        <div>
           <strong style="font-size: 10px; text-transform: uppercase">Code</strong><br />
           <textarea name="js4" id="js4" style="width: 100%; max-width: 1000px; padding: 10px; border: 1px solid black !important" cols="30" rows="2" readonly><strong class="article-subtitle">Sub Title</strong></textarea>
         </div>
@@ -586,11 +597,11 @@
       <h2>2. List 만들기</h2>
       <input type="text" name="js2input" id="js2input" placeholder="한 줄씩 텍스트와 엔터를 입력하세요." /><br />
       <div class="flex-list" style="padding: 0; border: 0; align-items: flex-start">
-        <div style="width: 50%">
+        <div>
           <strong style="font-size: 10px; text-transform: uppercase">Code</strong><br />
-          <textarea name="js2" id="js2" style="width: 100%; max-width: 1000px; padding: 10px; border: 1px solid black !important; resize: vertical" cols="30" rows="5" readonly></textarea>
+          <textarea name="js2" id="js2" style="width: 100%; padding: 10px; border: 1px solid black !important; resize: vertical" cols="30" rows="5" readonly></textarea>
         </div>
-        <div style="flex: 1;padding-left: 20px;">
+        <div style="padding-left: 20px">
           <strong style="font-size: 10px; text-transform: uppercase">Preview</strong><br />
           <ul class="body-list-type bullet-type">
             <!-- <li></li> -->
@@ -598,14 +609,14 @@
         </div>
       </div>
       <br />
-      <h2>3. 디자인 title type01 만들기</h2>
+      <h2>3. 디자인 title type01 만들기 </h2>
       <input type="text" name="js3input" id="js3input" placeholder="타이틀" /><br />
       <div class="flex-list" style="padding: 0; border: 0; align-items: flex-start">
-        <div style="width: 50%">
+        <div>
           <strong style="font-size: 10px; text-transform: uppercase">Code</strong><br />
           <textarea name="js3" id="js3" style="width: 100%; max-width: 1000px; padding: 10px; border: 1px solid black !important; resize: vertical" cols="30" rows="5" readonly></textarea>
         </div>
-        <div style="flex: 1;padding-left: 20px;">
+        <div style="padding-left: 20px">
           <strong style="font-size: 10px; text-transform: uppercase">Preview</strong><br />
           <div class="design-tit-type01">
             <span></span>
@@ -616,11 +627,11 @@
       <h2>4. 디자인 title type02 만들기</h2>
       <input type="text" name="js4input" id="js4input" placeholder="타이틀/텍스트" /><br />
       <div class="flex-list" style="padding: 0; border: 0; align-items: flex-start">
-        <div style="width: 50%">
+        <div>
           <strong style="font-size: 10px; text-transform: uppercase">Code</strong><br />
           <textarea name="js4" id="js4" style="width: 100%; max-width: 1000px; padding: 10px; border: 1px solid black !important; resize: vertical" cols="30" rows="5" readonly></textarea>
         </div>
-        <div style="flex: 1;padding-left: 20px;">
+        <div style="padding-left: 20px">
           <strong style="font-size: 10px; text-transform: uppercase">Preview</strong><br />
           <div class="design-tit-type02">
             <span class="round-tit"></span>
@@ -682,6 +693,37 @@
 
               // 코드 생성
               textArea.value = `<div class="design-tit-type01">
+                <span>${listHTML}</span>
+              </div>`;
+
+              // 입력 값 초기화
+              inputBox.value = "";
+            }
+          });
+        })();
+        (function () {
+          const textArea = document.getElementById("js5");
+          const inputBox = document.getElementById("js5input");
+          const previewArea = document.querySelector("div.design-tit-type01.en-txt span");
+          let listHTML = "";
+          // 엔터 키 입력 감지
+          inputBox.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+              // 입력 값 가져오기
+              const text = inputBox.value.trim();
+
+              // 빈 값 체크
+              if (!text) return;
+
+              // 새로운 목록 항목 만들기
+              const listItem = `${text}`;
+              listHTML = listHTML + listItem;
+
+              // 목록에 항목 추가
+              previewArea.insertAdjacentHTML("beforeend", listItem);
+
+              // 코드 생성
+              textArea.value = `<div class="design-tit-type01 en-txt">
                 <span>${listHTML}</span>
               </div>`;
 
